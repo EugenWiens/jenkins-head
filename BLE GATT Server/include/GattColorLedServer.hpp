@@ -1,32 +1,33 @@
+#pragma once
+
+#include "ColorHanlderInterface.hpp"
+#include "RgbColor.hpp"
+
 #include <BLEUUID.h>
 #include <BLECharacteristic.h>
 
 
-class GattColorLedServer {
+
+class GattColorLedServer : public BLECharacteristicCallbacks {
 
 public:
-    struct RgbColor {
-        uint32_t red;
-        uint32_t green;
-        uint32_t blue;
-
-        RgbColor() : red(0), green(0), blue(0) {}
-    };
-
-    explicit GattColorLedServer(BLECharacteristicCallbacks& characteristicCallbackHandler);
+    explicit GattColorLedServer(const ColorHandlerInterface& colorHandler);
     void init();
 
 private: 
     BLEUUID m_ServiceUuid;
     RgbColor m_RgbValue;
     uint32_t m_BrightnessValue;
-    BLECharacteristicCallbacks& m_CharacteristicCallbackHandler;
+    const ColorHandlerInterface& m_ColorHandler;
 
     void initCharacteristic(BLEService * const pService,
                             const BLEUUID& characteristicUuid,
                             uint32_t characteristicValue,
                             const BLEUUID& descriptorUuid,
                             const std::string& descriptorString
-                           ) const;
-    void initAdvertising() const;
+                           );
+    void initAdvertising();
+
+    virtual void onRead(BLECharacteristic* pCharacteristic) override;
+	virtual void onWrite(BLECharacteristic* pCharacteristic) override;
 };

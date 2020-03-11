@@ -1,8 +1,10 @@
-#include <Arduino.h>
 #include "GattColorLedServer.hpp"
+#include "NeoPixelHandler.hpp"
 
-BLECharacteristicCallbacks characteristicCallbacks;
-GattColorLedServer gattColorLedServer(characteristicCallbacks);
+#include <Arduino.h>
+
+NeoPixelHandler neoPixelHandler;
+GattColorLedServer gattColorLedServer(neoPixelHandler);
 
 void setup() {
   Serial.begin(115200);

@@ -13,5 +13,5 @@ public:
 
     void writeRgbColor(const RgbColor& rgbColor) const;
 
-    virtual void setColor(const RgbColor& rgbColor, uint32_t brightness) override;
+    virtual void setColor(const RgbColor& rgbColor, uint32_t brightness) const override;
 };

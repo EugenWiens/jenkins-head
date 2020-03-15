@@ -7,5 +7,5 @@
 class ColorHandlerInterface
 {
 public:
-    virtual void setColor(const RgbColor& rgbColor, uint32_t brightness) = 0;
+    virtual void setColor(const RgbColor& rgbColor, uint32_t brightness) const = 0;
 };

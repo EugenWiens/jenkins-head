@@ -119,10 +119,8 @@ void GattColorLedServer::onWrite(BLECharacteristic* pCharacteristic)
     if (pCharacteristic)
     {
         BLEUUID uuid = pCharacteristic->getUUID();
-        String valueAsString(pCharacteristic->toString().c_str());
+        String valueAsString(pCharacteristic->getValue().c_str());
         uint32_t value = valueAsString.toInt();
-        Serial.println("write: " + valueAsString);
-        
         uint32_t* pValue = operator[](uuid);
         
         if (pValue)

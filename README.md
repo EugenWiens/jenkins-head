@@ -18,10 +18,10 @@ This repository contains gatt-server and gatt-client software. Main goal is to v
 ```
 
 ## GATT Client
-The GATT Client collects the state of all registered Jenkins jobs. After that the server joins all states to one global state. This global state is represented as an **RGB** value is pushed by the GATT Client to the GATT Server (Jenkins Head).
+The GATT Client collects the state of all registered Jenkins jobs. After that the server joins all states to one global state. This global state is represented as an **RGB** value after that this value is pushed by the GATT Client to the GATT Server (Jenkins Head).
 
 ### Client Configuration
-The configuration of the client adress and the jobs that should be monitored are represented as a YAML file e.g.
+The configuration of the client address and the jobs that should be monitored are represented as a YAML file e.g.
 ```yaml
 - clientName: "client Name (jenkins head1)"
   clientAddress: "BLE MAC"

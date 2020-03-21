@@ -2,20 +2,9 @@
 This repository contains gatt-server and gatt-client software. Main goal is to visualize the Jenkins state :) 
 
 # system overview
-```
-                                                       +-------------------+
-                                                       |                   |
-+-------------+            +--------------+            | +--------------+  |
-|             |            |              |            | |              |  |
-|   Jenkins   |            |     GATT     |            | |     GATT     |  |
-|   Server    <------------+    Client    +-------------->    Server    |  |
-|             |    REST    |              |     BLE    | |              |  |
-+-------------+    API     +--------------+            | +--------------+  |
-                                                       |      Jenkins      |
-                                                       |       Head        |
-                                                       |                   |
-                                                       +-------------------+
-```
+
+![System Overview](./docs/diagrams/out/system-overview/system-overview.png)
+
 
 ## GATT Client
 The GATT Client collects the state of all registered Jenkins jobs. After that the server joins all states to one global state. This global state is represented as an **RGB** value after that this value is pushed by the GATT Client to the GATT Server (Jenkins Head).
@@ -42,3 +31,7 @@ The configuration of the client address and the jobs that should be monitored ar
 
 ## GATT Sever
 The GATT Server is colouring the jenkins head regarding the **RGB** value that is set from the GATT client.
+
+# Sequence
+
+![Sequence Diagram](./docs/diagrams/out/sequence-diagram/sequence-diagram.png)

@@ -1,0 +1,21 @@
+@startuml "system-overview"
+skinparam classAttributeIconSize 0
+title System Overview
+
+node "Jenkins Head" as JenkinsHead {
+    rectangle "Gatt Server"
+}
+
+node "Jenkins Server" <<actor>> as JenkinsServer {
+}
+
+node "Raspberry Pi" as RaspberryPi {
+    rectangle "Gatt Client" as GattClient
+    artifact Configuration 
+}
+
+
+RaspberryPi ..> JenkinsServer : REST-API
+JenkinsHead <.. RaspberryPi : BLE
+
+@enduml

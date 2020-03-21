@@ -1,0 +1,39 @@
+@startuml "sequence-diagram"
+title Sequence Diagram
+
+participant "job1 : JenkinsServer" as JenkinsJob1 <<actor>>
+participant "job2 : JenkinsServer" as JenkinsJob2 <<actor>>
+participant "Gatt Client" as GattClient
+participant "Gatt Server" as GattServer
+
+activate GattClient
+GattClient -> GattClient : readConfiguration
+activate GattClient
+deactivate GattClient
+
+loop
+GattClient -> JenkinsJob1  : getJobStatus
+activate JenkinsJob1
+return
+
+GattClient -> JenkinsJob2  : getJobStatus
+activate JenkinsJob2
+return
+
+GattClient -> GattClient : createOverallStatus
+activate GattClient
+deactivate GattClient
+
+GattClient -> GattClient : calculateRgbValue
+activate GattClient
+deactivate GattClient
+
+ref over GattClient, GattServer : "set rgb"
+||10||
+end
+deactivate GattClient
+||10||
+
+
+
+@enduml

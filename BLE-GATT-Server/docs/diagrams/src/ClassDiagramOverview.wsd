@@ -1,0 +1,14 @@
+@startuml
+skinparam classAttributeIconSize 0
+title GATT-Server_overview
+
+interface BLECharacteristicCallbacks <<interface>>
+interface ColorHandlerInterface <<interface>> 
+
+BLECharacteristicCallbacks <|.. GattColorLedServer
+ColorHandlerInterface <|.. NeoPixelHandler
+ColorHandlerInterface <--o GattColorLedServer
+GattColorLedServer <.. main
+NeoPixelHandler <.. main
+
+@enduml

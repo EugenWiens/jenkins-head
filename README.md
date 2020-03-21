@@ -1,5 +1,7 @@
 # jenkins-head
-This repository contains gatt-server and gatt-client software. Main goal is to visualize the Jenkins state :) 
+This repository contains gatt-server and gatt-client software. The Main goal of this project is, to visualize the Jenkins state with a jenkins figure :) 
+
+TODO: add picture of the jenkins head
 
 # system overview
 
@@ -30,7 +32,7 @@ The configuration of the client address and the jobs that should be monitored ar
 ```
 
 ## GATT Sever
-The GATT Server is colouring the jenkins head regarding the **RGB** value that is set from the GATT client.
+The GATT Server is colouring the jenkins head regarding the **RGB** value that is set from the GATT client. For further information see the documentation of the [GATT Server](BLE-GATT-Sever/README.md) documentation.
 
 # Sequence
 

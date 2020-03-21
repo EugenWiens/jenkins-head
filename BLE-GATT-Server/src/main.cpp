@@ -10,6 +10,7 @@ void setup() {
   Serial.begin(115200);
 
   gattColorLedServer.init();
+  neoPixelHandler.init();
 }
 
 void loop() {

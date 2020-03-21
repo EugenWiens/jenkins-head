@@ -4,6 +4,7 @@
 #include "RgbColor.hpp"
 
 #include <Arduino.h>
+#include <Adafruit_NeoPixel.h>
 
 
 class NeoPixelHandler : public ColorHandlerInterface
@@ -11,7 +12,10 @@ class NeoPixelHandler : public ColorHandlerInterface
 public:
     NeoPixelHandler();
 
-    void writeRgbColor(const RgbColor& rgbColor) const;
-
+    void init() const;
     virtual void setColor(const RgbColor& rgbColor, uint32_t brightness) const override;
+
+private:
+    mutable Adafruit_NeoPixel m_NeoPixel;
+
 };

@@ -32,7 +32,7 @@ The configuration of the client address and the jobs that should be monitored ar
 ```
 
 ## GATT Sever
-The GATT Server is colouring the jenkins head regarding the **RGB** value that is set from the GATT client. For further information see the documentation of the [GATT Server](BLE-GATT-Sever/README.md) documentation.
+The GATT Server is colouring the jenkins head regarding the **RGB** value that is set from the GATT client. For further information see the documentation of the [GATT Server](BLE-GATT-Server/README.md) documentation.
 
 # Sequence
 

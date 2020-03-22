@@ -9,24 +9,23 @@ namespace {
 }
 
 NeoPixelHandler::NeoPixelHandler()
-  : m_NeoPixel(firstPixel + numberOfPixels, dataPinNumber, NEO_GRBW + NEO_KHZ400)
+  : m_NeoPixel(16, dataPinNumber, NEO_GRBW + NEO_KHZ800)
 {
 }
 
 void NeoPixelHandler::init() const
 {
     m_NeoPixel.begin();
-    m_NeoPixel.clear();
-}
+} 
 
 void NeoPixelHandler::setColor(const RgbColor& rgbColor, uint32_t brightness) const
 {
     Serial.println("NeoPixelHandler::setColor " + rgbColor.toString() + " brightness: " + String(brightness));
-
+    m_NeoPixel.clear();
     
-    for (uint16_t index=firstPixel; index < m_NeoPixel.numPixels(); ++index)
+    for (uint16_t index=firstPixel; index < firstPixel + numberOfPixels; ++index)
     {
         m_NeoPixel.setPixelColor(index, rgbColor.getRgbValueAsInt());
+        m_NeoPixel.show(); 
     }
-    m_NeoPixel.show(); 
 }

@@ -9,7 +9,7 @@ TODO: add picture of the jenkins head
 
 
 ## GATT Client
-The GATT Client collects the state of all registered Jenkins jobs. (see more details [here](GATT_client/README.md))
+The GATT Client collects the state of all registered Jenkins jobs. (see more details [here](BLE-GATT-Client/README.md))
 The Jobs are organised in groups. The state of a group is visualized with a Jenkins head (BLE Server)
 A state is represented as an **RGB** value pushed by the GATT Client to the GATT Server (Jenkins Head).
 

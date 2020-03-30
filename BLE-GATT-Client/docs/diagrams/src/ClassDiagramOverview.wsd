@@ -1,0 +1,12 @@
+@startuml "GATT-Client_overview"
+skinparam classAttributeIconSize 0
+title GATT-Client overview
+
+GattClient *--> JenkinsApiHandler
+GattClientManager *--> "1..*" GattClient
+GattClient *--> GattServerConnector
+
+main *--> GattClientManager
+GattClientManager *--> ConfigurationHandler
+
+@enduml

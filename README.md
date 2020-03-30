@@ -9,26 +9,40 @@ TODO: add picture of the jenkins head
 
 
 ## GATT Client
-The GATT Client collects the state of all registered Jenkins jobs. After that the server joins all states to one global state. This global state is represented as an **RGB** value after that this value is pushed by the GATT Client to the GATT Server (Jenkins Head).
+The GATT Client collects the state of all registered Jenkins jobs. (see more details [here](GATT_client/README.md))
+The Jobs are organised in groups. The state of a group is visualized with a Jenkins head (BLE Server)
+A state is represented as an **RGB** value pushed by the GATT Client to the GATT Server (Jenkins Head).
 
 ### Client Configuration
 The configuration of the client address and the jobs that should be monitored are represented as a YAML file e.g.
 ```yaml
-- clientName: "client Name (jenkins head1)"
-  clientAddress: "BLE MAC"
-  jenkinsJobs:
-    - jobName: "job1"
-      jobUrl: "http://..."
-    - jobName: "job2"
-      jobUrl: "http://..."
-
-- clientName: "client Name2 (jenkins head2)"
-  clientAddress: "BLE MAC2"
-  jenkinsJobs:
-    - jobName: "job3"
-      jobUrl: "http://..."
-    - jobName: "job4"
-      jobUrl: "http://..."
+groups:
+  - name: "client Name (jenkins head1)"
+    ble_mac: "BLE MAC"
+    jenkins_jobs:
+      jenkins_server1:
+        - "/job/path/1" # optional user text
+        - "/job/path/2" # this just the path without hostname
+      jenkins_server2:
+        - "/job/path" # optional user text
+  - name: "jenkins head"
+    ble_mac: "BLE MAC"
+      jenkins_server1:
+        - "http://..." # optional user text
+        - "http://..."
+jenkins_servers:
+  jenkins_server1:
+    name: "human readable name or discription"
+    url: "http://<hostname>[:port]"
+    authentication:
+      - "username":
+      - "key":
+  jenkins_server2:
+    name: "human readable name or discription"
+    url: "http://<hostname>[:port]"
+    authentication:
+     - "username": "bot-user"
+     - "key": "secret"
 ```
 
 ## GATT Sever

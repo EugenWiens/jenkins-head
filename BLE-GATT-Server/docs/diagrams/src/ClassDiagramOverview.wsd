@@ -1,6 +1,6 @@
-@startuml
+@startuml "GATT-Server_overview"
 skinparam classAttributeIconSize 0
-title GATT-Server_overview
+title GATT-Server overview
 
 interface BLECharacteristicCallbacks <<interface>>
 interface ColorHandlerInterface <<interface>> 

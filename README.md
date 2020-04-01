@@ -13,37 +13,6 @@ The GATT Client collects the state of all registered Jenkins jobs. (see more det
 The Jobs are organised in groups. The state of a group is visualized with a Jenkins head (BLE Server)
 A state is represented as an **RGB** value pushed by the GATT Client to the GATT Server (Jenkins Head).
 
-### Client Configuration
-The configuration of the client address and the jobs that should be monitored are represented as a YAML file e.g.
-```yaml
-groups:
-  - name: "client Name (jenkins head1)"
-    ble_mac: "BLE MAC"
-    jenkins_jobs:
-      jenkins_server1:
-        - "/job/path/1" # optional user text
-        - "/job/path/2" # this just the path without hostname
-      jenkins_server2:
-        - "/job/path" # optional user text
-  - name: "jenkins head"
-    ble_mac: "BLE MAC"
-      jenkins_server1:
-        - "http://..." # optional user text
-        - "http://..."
-jenkins_servers:
-  jenkins_server1:
-    name: "human readable name or discription"
-    url: "http://<hostname>[:port]"
-    authentication:
-      - "username":
-      - "key":
-  jenkins_server2:
-    name: "human readable name or discription"
-    url: "http://<hostname>[:port]"
-    authentication:
-     - "username": "bot-user"
-     - "key": "secret"
-```
 
 ## GATT Sever
 The GATT Server is colouring the jenkins head regarding the **RGB** value that is set from the GATT client. For further information see the documentation of the [GATT Server](BLE-GATT-Server/README.md) documentation.

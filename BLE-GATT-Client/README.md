@@ -1,3 +1,12 @@
+
+- [General](#general)
+  - [Installation](#installation)
+  - [systemd service](#systemd-service)
+- [System Overview](#system-overview)
+    - [Client Configuration](#client-configuration)
+- [Development](#development)
+  - [Setup Virtual Environment](#setup-virtual-environment)
+
 # General
 
 The **GATT client** is a **python3** daemon designed to run on a system with BLE support.
@@ -49,4 +58,24 @@ jenkins_servers:
     authentication:
      - "username": "bot-user"
      - "key": "secret"
+```
+
+# Development
+
+## Setup Virtual Environment 
+create the virtual environment with the name `virtual-env`
+
+```bash
+python3 -m venv virtual-env
+```
+
+activate the virtual environment with the name `virtual-env`
+```bash
+source virtual-env/bin/activate
+```
+
+install all dependent packages 
+
+```bash
+pip3 install -r requirements.txt
 ```

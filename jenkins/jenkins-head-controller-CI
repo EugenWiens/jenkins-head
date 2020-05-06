@@ -1,12 +1,38 @@
 pipeline {
     agent any
-
-        stages {
-            stage('Hello World') {
-                steps {
-                    sh 'echo Hello World'
-                    sh 'python --version'
-                }
+    stages {
+        stage('Hello World') {
+            steps {
+                sh 'echo Hello World'
+                sh 'python --version'
             }
         }
+
+        stage('Install virtual environment') {
+            steps {
+                sh 'cd BLE-GATT-Client/python-package && ./install_dev_venv.sh'
+            }
+        }
+
+        stage('Build and install python package') {
+            steps {
+                sh 'cd BLE-GATT-Client/python-package && source venv/bin/activate && python setup.py sdist bdist_wheel && pip install .'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'cd BLE-GATT-Client/python-package && source venv/bin/activate && pytest tests'
+            }
+        }
+
+        stage('Deploy to testpypi') {
+            when {
+                branch "master"
+            }
+            steps {
+                sh 'cd BLE-GATT-Client/python-package && source venv/bin/activate && python -m twine upload --repository testpypi'
+            }
+        }
+    }
 }

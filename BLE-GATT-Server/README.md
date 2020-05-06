@@ -15,7 +15,7 @@ This GATT Server provides a service with the UUID `3bea760b-ea72-44d6-a189-2c277
 
 # System Overview
 
-![Class Diagram](./docs/diagrams/out/ClassDiagramOverview/GATT-Server_overview.png)
+![Class Diagram](./doc/diagrams/out/ClassDiagramOverview/GATT-Server_overview.png)
 
 ## GattColorLedServer
 This class implements the **BLECharacteristicCallbacks** Interface to handles following functions

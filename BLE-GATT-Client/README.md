@@ -20,12 +20,22 @@ TODO
 
 ## systemd service
 
-TODO
+To set up the `jenkins-head-controller` to run on boot we prepared a systemd service file.
+The following lines will install and enable automatic startup on boot.
 
+    # run the following as root
+    # install the service file
+    cp  BLE-GATT-Client/templates/jenkins-head-controller.service /etc/systemd/system
+    # start the service
+    systemctl start jenkins-head-controller
+    # check if it is up and running as expected
+    systemctl status jenkins-head-controller
+    # enable the service on boot
+    systemctl enable jenkins-head-controller
 
 # System Overview
 
-![Class Diagram](./docs/diagrams/out/ClassDiagramOverview/GATT-Client_overview.png)
+![Class Diagram](./doc/diagrams/out/ClassDiagramOverview/GATT-Client_overview.png)
 
 
 ### Client Configuration
@@ -62,20 +72,5 @@ jenkins_servers:
 
 # Development
 
-## Setup Virtual Environment 
-create the virtual environment with the name `virtual-env`
-
-```bash
-python3 -m venv virtual-env
-```
-
-activate the virtual environment with the name `virtual-env`
-```bash
-source virtual-env/bin/activate
-```
-
-install all dependent packages 
-
-```bash
-pip3 install -r requirements.txt
-```
+## Setup Virtual Environment
+TODO

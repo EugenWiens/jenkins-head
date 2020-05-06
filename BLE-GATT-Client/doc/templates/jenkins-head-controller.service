@@ -1,0 +1,12 @@
+[Unit]
+Description=Jenkins Head Controller
+After=network.target
+
+[Service]
+# TODO ExecStart=
+Restart=on-failure
+
+ProtectSystem=strict
+
+[Install]
+WantedBy=multi-user.target

@@ -1,5 +1,14 @@
 {
     "plantuml.diagramsRoot": "doc/diagrams/src",
     "plantuml.exportOutDir": "doc/diagrams/out",
-    "plantuml.exportFormat": "png"
+    "plantuml.exportFormat": "png",
+
+    "python.formatting.provider": "autopep8",
+    "python.formatting.autopep8Args": ["--max-line-length=150","--ignore=E201,E202,E221,E222,E501"],
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": ["--max-line-length=150","--ignore=E201,E202,E221,E222,E501"],
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,    
 }

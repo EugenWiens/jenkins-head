@@ -10,5 +10,5 @@
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Args": ["--max-line-length=150","--ignore=E201,E202,E221,E222,E501"],
     "editor.formatOnSave": false,
-    "editor.formatOnType": false,    
+    "editor.formatOnType": false
 }

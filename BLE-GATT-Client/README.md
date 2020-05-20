@@ -5,7 +5,9 @@
 - [System Overview](#system-overview)
     - [Client Configuration](#client-configuration)
 - [Development](#development)
-  - [Setup Virtual Environment](#setup-virtual-environment)
+  - [listing all sessions](#listing-all-sessions)
+  - [executing all default sessions](#executing-all-default-sessions)
+  - [executing special session](#executing-special-session)
 
 # General
 
@@ -71,6 +73,32 @@ jenkins_servers:
 ```
 
 # Development
+This python project uses [nox](https://nox.thea.codes/en/stable/index.html) as a system to manage the virtual environment and execute commands in it. 
 
-## Setup Virtual Environment
-TODO
+## listing all sessions
+```bash
+nox --list
+```
+
+this output is an example of a list of sessions
+```bash
+Sessions defined in /home/mic/Projekte/BLE-GATT/jenkins-head-ble/BLE-GATT-Client/noxfile.py:
+
+* lint -> run linter for this project
+- dev-venv -> create a virtual environment for the development
+- build -> build: what ever sdist and bdist_wheels do :)
+* tests -> run tests for this project
+- deploy-test-pypi -> deploy this package for testing to the pypi test server
+- deploy-pypi -> deploy this package to the official pypi server
+- distclean -> this command removes all auto generated files
+
+sessions marked with * are selected, sessions marked with - are skipped.
+``` 
+
+## executing all default sessions
+When executing `nox` in the project path all default selected sessions are executed.
+
+## executing special session
+```bash
+nox -s lint
+```

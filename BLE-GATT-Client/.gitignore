@@ -1,6 +1,8 @@
 bdist.*
 dist/
 *.egg-info/
-venv/
 *.pyc
-python-package/build/
+/build/
+/.nox
+/.pytest_cache
+/__pycache__

@@ -1,0 +1,28 @@
+name: jenkins-head-ci
+
+on:
+  push:
+    paths: 
+      - 'BLE-GATT-Server/**'
+      - '!BLE-GATT-Server/doc/**'
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+defaults:
+  run:
+    working-directory: 'BLE-GATT-Server/'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Python
+        uses: actions/setup-python@v1
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install platformio
+      - name: Run PlatformIO
+        run: platformio run

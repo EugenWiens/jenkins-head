@@ -40,8 +40,9 @@ def build(session):
 def tests(session):
     """run tests for this project"""
     session.install("pytest")
+    session.install("pytest-cov")
     session.install(".")
-    session.run("pytest", "tests")
+    session.run("pytest", "tests", "--cov=./src", "--cov-report=xml")
 
 
 @nox.session(name="deploy-test-pypi")
@@ -56,6 +57,7 @@ def deploy(session):
     """deploy this package to the official pypi server"""
     # python -m twine upload --repository testpypi'
     pass
+
 
 @nox.session(python=False)
 def distclean(session):

@@ -1,6 +1,6 @@
 ![jenkins-head-controller-ci](https://github.com/EugenWiens/jenkins-head/workflows/jenkins-head-controller-ci/badge.svg)
 ![jenkins-head-ci](https://github.com/EugenWiens/jenkins-head/workflows/jenkins-head-ci/badge.svg)
-
+[![codecov-jenkins-head-controller-ci](https://codecov.io/gh/EugenWiens/jenkins-head/branch/master/graph/badge.svg)](https://codecov.io/gh/EugenWiens/jenkins-head)
 
 # jenkins-head
 This repository contains gatt-server and gatt-client software. The Main goal of this project is, to visualize the Jenkins state with a jenkins figure :)

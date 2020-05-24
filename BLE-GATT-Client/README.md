@@ -43,33 +43,34 @@ The following lines will install and enable automatic startup on boot.
 ### Client Configuration
 The configuration of the client address and the jobs that should be monitored are represented as a YAML file e.g.
 ```yaml
-groups:
+heads:
   - name: "client Name (jenkins head1)"
-    ble_mac: "BLE MAC"
-    jenkins_jobs:
-      jenkins_server1:
-        - "/job/path/1" # optional user text
-        - "/job/path/2" # this just the path without hostname
+    ble_mac: "BLE MAC"  # 00:11:22:33:FF:EE
+    jobs:
+      jenkins_server1:  # reference id of the server region
+        - "job/path/1"  # path of the job
+        - "job/path/2"  # path of the job
       jenkins_server2:
-        - "/job/path" # optional user text
+        - "job/path"    # path of the job
   - name: "jenkins head"
-    ble_mac: "BLE MAC"
+    ble_mac: "BLE MAC"  # 00:11:22:33:FF:EE
+    jobs:
       jenkins_server1:
-        - "http://..." # optional user text
+        - "http://..."  # optional user text
         - "http://..."
-jenkins_servers:
-  jenkins_server1:
-    name: "human readable name or discription"
+servers:
+  jenkins_server1:      # server id that can be reference in the jobs area of the heads region
+    name: "human readable name or description"
     url: "http://<hostname>[:port]"
     authentication:
-      - "username":
-      - "key":
+      - "username": ""
+      - "secret": ""
   jenkins_server2:
-    name: "human readable name or discription"
+    name: "human readable name or description"
     url: "http://<hostname>[:port]"
     authentication:
      - "username": "bot-user"
-     - "key": "secret"
+     - "secret": "secret"
 ```
 
 # Development

@@ -20,6 +20,9 @@ def lint(session):
 @nox.session(name="dev-venv")
 def createVirtualEnvironmentForDevelopment(session):
     """create a virtual environment for the development"""
+    session.install("pytest")
+    session.install("pytest-cov")
+    session.install("flake8")
     # same as pip install .
     session.install("-e", ".")
     session.log("environment is completely installed, please call the following command to use it:")
@@ -41,8 +44,9 @@ def tests(session):
     """run tests for this project"""
     session.install("pytest")
     session.install("pytest-cov")
-    session.install(".")
-    session.run("pytest", "tests", "--cov=./src", "--cov-report=xml")
+    session.install("-e", ".")
+
+    session.run("pytest", "tests", "--cov=./src", "--cov-branch", "--cov-report=xml", *session.posargs)
 
 
 @nox.session(name="deploy-test-pypi")

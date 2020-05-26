@@ -4,6 +4,8 @@ This module is used as entry point for the jenkins-head-controller
 '''
 import argparse
 import logging
+import sys
+
 
 versionNumber = '0.0.1'
 
@@ -15,7 +17,7 @@ formatMap = {
 }
 
 
-def initArgumentParser():
+def initArgumentParser(argv):
     global versionNumber
     parser = argparse.ArgumentParser()
     parser.add_argument('--version', action='version', version='%(prog)s ' + versionNumber)
@@ -26,7 +28,7 @@ def initArgumentParser():
         choices=['DEBUG', 'INFO', 'WARNING', 'ERROR'],
         help='set the level of the logging, default=\'INFO\'',
         default='INFO')
-    return parser.parse_args()
+    return parser.parse_args(argv)
 
 
 def initLogger(logLevel):
@@ -37,11 +39,11 @@ def initLogger(logLevel):
     logging.basicConfig(level=logLevel, format=logFormatString)
 
 
-def main():
-    arguments = initArgumentParser()
+def main(argv):
+    arguments = initArgumentParser(argv)
     initLogger(arguments.logLevel)
     logging.info("starting...")
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv)

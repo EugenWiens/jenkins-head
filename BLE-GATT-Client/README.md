@@ -8,6 +8,7 @@
   - [listing all sessions](#listing-all-sessions)
   - [executing all default sessions](#executing-all-default-sessions)
   - [executing special session](#executing-special-session)
+    - [executing special session with parameter for the session](#executing-special-session-with-parameter-for-the-session)
 
 # General
 
@@ -102,4 +103,10 @@ When executing `nox` in the project path all default selected sessions are execu
 ## executing special session
 ```bash
 nox -s lint
+```
+
+### executing special session with parameter for the session
+Sometimes it is necessary to forward a parameter to the session. e.g. activate extra coverage report to the terminal
+```bash
+nox -s tests -- --cov-report=term
 ```

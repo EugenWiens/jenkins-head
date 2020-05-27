@@ -84,8 +84,6 @@ nox --list
 
 this output is an example of a list of sessions
 ```bash
-Sessions defined in /home/mic/Projekte/BLE-GATT/jenkins-head-ble/BLE-GATT-Client/noxfile.py:
-
 * lint -> run linter for this project
 - dev-venv -> create a virtual environment for the development
 - build -> build: what ever sdist and bdist_wheels do :)

@@ -1,0 +1,16 @@
+heads:
+    - name: "jenkins_head_1"
+      ble_mac: "00:11:22:33:FF:EE"
+      jobs:
+        jenkins_server_1: 
+          - "job1/jenkins_head_1/jenkins_server_1/" 
+          - "job2/jenkins_head_1/jenkins_server_1/"
+        jenkins_server_2:
+          - "job1/jenkins_head_1/jenkins_server_2/"    
+servers:
+    jenkins_server_1:
+      # name: "jenkins_server_1" # missing key
+      url: "http://jenkins_server_1:12345"
+      authentication:
+        - "username": "mr"
+        - "secret": "jenkins"

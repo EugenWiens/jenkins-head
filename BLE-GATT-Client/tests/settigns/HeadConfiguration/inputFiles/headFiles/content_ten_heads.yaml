@@ -1,0 +1,104 @@
+heads:
+  - name: "jenkins_head_1"
+    ble_mac: "00:11:22:33:FF:01"
+    jobs:
+      jenkins_server_1: 
+        - "job1/jenkins_head_1/jenkins_server_1/" 
+  - name: "jenkins_head_2"
+    ble_mac: "00:11:22:33:FF:02"
+    jobs:
+      jenkins_server_1: 
+        - "job1/jenkins_head_2/jenkins_server_1/" 
+        - "job2/jenkins_head_2/jenkins_server_1/"
+  - name: "jenkins_head_3"
+    ble_mac: "00:11:22:33:FF:03"
+    jobs:
+      jenkins_server_1: 
+        - "job1/jenkins_head_3/jenkins_server_1/" 
+        - "job2/jenkins_head_3/jenkins_server_1/"
+        - "job3/jenkins_head_3/jenkins_server_1/"
+  - name: "jenkins_head_4"
+    ble_mac: "00:11:22:33:FF:04"
+    jobs:
+      jenkins_server_1: 
+        - "job1/jenkins_head_4/jenkins_server_1/" 
+        - "job2/jenkins_head_4/jenkins_server_1/"
+        - "job3/jenkins_head_4/jenkins_server_1/" 
+        - "job4/jenkins_head_4/jenkins_server_1/"
+  - name: "jenkins_head_5"
+    ble_mac: "00:11:22:33:FF:05"
+    jobs:
+      jenkins_server_1: 
+        - "job1/jenkins_head_5/jenkins_server_1/" 
+        - "job2/jenkins_head_5/jenkins_server_1/"
+        - "job3/jenkins_head_5/jenkins_server_1/"
+        - "job4/jenkins_head_5/jenkins_server_1/"
+        - "job5/jenkins_head_5/jenkins_server_1/"
+  - name: "jenkins_head_6"
+    ble_mac: "00:11:22:33:FF:06"
+    jobs:
+      jenkins_server_1: 
+        - "job1/jenkins_head_6/jenkins_server_1/" 
+        - "job2/jenkins_head_6/jenkins_server_1/"
+        - "job3/jenkins_head_6/jenkins_server_1/" 
+        - "job4/jenkins_head_6/jenkins_server_1/"
+        - "job5/jenkins_head_6/jenkins_server_1/" 
+        - "job6/jenkins_head_6/jenkins_server_1/"
+  - name: "jenkins_head_7"
+    ble_mac: "00:11:22:33:FF:07"
+    jobs:
+      jenkins_server_1: 
+        - "job1/jenkins_head_7/jenkins_server_1/" 
+        - "job2/jenkins_head_7/jenkins_server_1/"
+        - "job3/jenkins_head_7/jenkins_server_1/"
+        - "job4/jenkins_head_7/jenkins_server_1/"
+        - "job5/jenkins_head_7/jenkins_server_1/"
+        - "job6/jenkins_head_7/jenkins_server_1/"
+        - "job7/jenkins_head_7/jenkins_server_1/"
+  - name: "jenkins_head_8"
+    ble_mac: "00:11:22:33:FF:08"
+    jobs:
+      jenkins_server_1: 
+        - "job1/jenkins_head_8/jenkins_server_1/" 
+        - "job2/jenkins_head_8/jenkins_server_1/"
+        - "job3/jenkins_head_8/jenkins_server_1/" 
+        - "job4/jenkins_head_8/jenkins_server_1/"
+        - "job5/jenkins_head_8/jenkins_server_1/" 
+        - "job6/jenkins_head_8/jenkins_server_1/"
+        - "job7/jenkins_head_8/jenkins_server_1/" 
+        - "job8/jenkins_head_8/jenkins_server_1/"
+  - name: "jenkins_head_9"
+    ble_mac: "00:11:22:33:FF:09"
+    jobs:
+      jenkins_server_1: 
+        - "job1/jenkins_head_9/jenkins_server_1/" 
+        - "job2/jenkins_head_9/jenkins_server_1/"
+        - "job3/jenkins_head_9/jenkins_server_1/"
+        - "job4/jenkins_head_9/jenkins_server_1/"
+        - "job5/jenkins_head_9/jenkins_server_1/"
+        - "job6/jenkins_head_9/jenkins_server_1/"
+        - "job7/jenkins_head_9/jenkins_server_1/"
+        - "job8/jenkins_head_9/jenkins_server_1/"
+        - "job9/jenkins_head_9/jenkins_server_1/"
+  - name: "jenkins_head_10"
+    ble_mac: "00:11:22:33:FF:10"
+    jobs:
+      jenkins_server_1: 
+        - "job1/jenkins_head_10/jenkins_server_1/" 
+        - "job2/jenkins_head_10/jenkins_server_1/"
+        - "job3/jenkins_head_10/jenkins_server_1/" 
+        - "job4/jenkins_head_10/jenkins_server_1/"
+        - "job5/jenkins_head_10/jenkins_server_1/" 
+        - "job6/jenkins_head_10/jenkins_server_1/"
+        - "job7/jenkins_head_10/jenkins_server_1/" 
+        - "job8/jenkins_head_10/jenkins_server_1/"
+        - "job9/jenkins_head_10/jenkins_server_1/" 
+        - "job10/jenkins_head_10/jenkins_server_1/"
+  
+servers:
+    jenkins_server_1:
+      name: "jenkins_server_1"
+      url: "http://jenkins_server_1:12345"
+      authentication:
+        - "username": "mr"
+        - "secret": "jenkins"

@@ -1,0 +1,17 @@
+heads:
+    - name: "jenkins_head_1"
+      ble_mac: "00:11:22:33:FF:EE"
+      jobs:
+        jenkins_server_1: 
+          - "job1/jenkins_head_1/jenkins_server_1/" 
+          - "job2/jenkins_head_1/jenkins_server_1/"
+        jenkins_server_2:
+          - "job1/jenkins_head_1/jenkins_server_2/"    
+    - name: "jenkins_head_2"
+      ble_mac: "EE:FF:33:22:11:00"
+      jobs:
+        jenkins_server_1:
+          - "job1/jenkins_head_2/jenkins_server_1/"  
+          - "job2/jenkins_head_2/jenkins_server_1/"
+
+# servers section is missing

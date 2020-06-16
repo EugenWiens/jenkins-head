@@ -24,5 +24,8 @@ setuptools.setup(
         'console_scripts': [
             'jenkins-head-controller=jenkins_head_controller:main'
         ]
-    }
+    },
+    install_requires=[
+        'pyyaml',
+    ],
 )

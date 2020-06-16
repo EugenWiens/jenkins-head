@@ -1,0 +1,22 @@
+heads:
+    - name: "jenkins_head_1" 
+      ble_mac_wrong: "00:11:22:33:FF:EE" # wrong ble_mac key for a head
+      jobs:
+        jenkins_server_1: 
+          - "job1/jenkins_head_1/jenkins_server_1/" 
+          - "job2/jenkins_head_1/jenkins_server_1/"
+        jenkins_server_2:
+          - "job1/jenkins_head_1/jenkins_server_2/"    
+servers:
+    jenkins_server_1:
+      name: "jenkins_server_1"
+      url: "http://jenkins_server_1:12345"
+      authentication:
+        - "username": "mr"
+        - "secret": "jenkins"
+    jenkins_server_2:
+      name: "jenkins_server_2"
+      url: "http://jenkins_server_2:12345"
+      authentication:
+       - "username": "bot-user"
+       - "secret": "secret"

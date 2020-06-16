@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    parameters {
+       booleanParam(name: 'SUCCESSFUL_BUILD', defaultValue: true)
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo "TestJob5-MBPL execute"
+                echo "SUCCESSFUL_BUILD = ${params.SUCCESSFUL_BUILD}"
+            }
+        }
+    }
+}

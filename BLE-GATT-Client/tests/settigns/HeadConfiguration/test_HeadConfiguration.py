@@ -11,6 +11,7 @@ def doesNotRaise():
     yield
 
 
+@pytest.mark.unit_test
 class TestHeadConfiguration(object):
 
     @pytest.mark.parametrize('file2Test, expectation', [

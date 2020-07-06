@@ -10,6 +10,7 @@ def doesNotRaise():
     yield
 
 
+@pytest.mark.unit_test
 class TestConfigurationHandler(object):
 
     @pytest.mark.parametrize('file2Test, expectation', [

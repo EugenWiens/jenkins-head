@@ -46,7 +46,17 @@ def tests(session):
     session.install("pytest-cov")
     session.install("-e", ".")
 
-    session.run("pytest", "tests", "--cov=./src", "--cov-branch", "--cov-report=xml", *session.posargs)
+    session.run("pytest", "-m unit_test", "--cov=./src", "--cov-branch", "--cov-report=xml", "tests", *session.posargs)
+
+
+@nox.session(name="integration-tests")
+def integrationTests(session):
+    """run integration tests for this project runs agains a docker image"""
+    session.install("pytest")
+    session.install("pytest-cov")
+    session.install("-e", ".")
+
+    session.run("pytest", "-m integration_test", "--cov=./src", "--cov-branch", "--cov-report=xml", "tests", *session.posargs)
 
 
 @nox.session(name="deploy-test-pypi")

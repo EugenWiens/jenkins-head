@@ -1,7 +1,7 @@
 import jenkins_head_controller
 import pytest
 
-
+@pytest.mark.unit_test
 class TestMainScript():
 
     @pytest.mark.parametrize('inputParameter, exitCode', [

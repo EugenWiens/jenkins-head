@@ -27,5 +27,6 @@ setuptools.setup(
     },
     install_requires=[
         'pyyaml',
+        'python-jenkins'
     ],
 )

@@ -1,4 +1,13 @@
 {
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/__pycache__" : true,
+        "**/*.egg-info" : true
+    },
     "plantuml.diagramsRoot": "doc/diagrams/src",
     "plantuml.exportOutDir": "doc/diagrams/out",
     "plantuml.exportFormat": "png",
@@ -14,7 +23,9 @@
     
     "python.pythonPath": "${workspaceFolder}/.nox/dev-venv/bin/python3",
     "python.testing.pytestArgs": [
-        "tests"
+        "tests",
+        "-m", "unit_tests",
+        "-m", "integrations_tests"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,

@@ -2,13 +2,15 @@
 skinparam classAttributeIconSize 0
 title GATT-Client overview
 
-GattClient *--> JenkinsApiHandler
-GattClientManager o--> "1..*" GattClient
-GattClient *--> GattServerConnector
+class JenkinsApiHandler <<actor>>
 
-main *--> GattClientManager
-GattClientManager --> ConfigurationHandler
-GattClientManager o--> "0..*" HeadConfiguration
+HeadHandler *--> JenkinsApiHandler
+HeadsManager o--> "1..*" HeadHandler
+HeadHandler *--> GattServerConnector
+
+main *--> HeadsManager
+HeadsManager --> ConfigurationHandler
+HeadsManager o--> "0..*" HeadConfiguration
 ConfigurationHandler --> HeadConfiguration
 
 @enduml

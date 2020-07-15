@@ -24,7 +24,14 @@
   <builders>
     <hudson.tasks.Shell>
       <command>echo &quot;TestJob2-FS execute&quot;
-echo &quot;SUCCESSFUL_BUILD = $SUCCESSFUL_BUILD&quot;</command>
+echo &quot;SUCCESSFUL_BUILD = $SUCCESSFUL_BUILD&quot;
+
+if [ $SUCCESSFUL_BUILD = &quot;true&quot; ]
+then
+	exit 0
+else 
+	exit 1
+fi</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>

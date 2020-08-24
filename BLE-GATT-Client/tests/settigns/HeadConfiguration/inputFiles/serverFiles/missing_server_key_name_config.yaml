@@ -12,5 +12,5 @@ servers:
       # name: "jenkins_server_1" # missing key
       url: "http://jenkins_server_1:12345"
       authentication:
-        - "username": "mr"
-        - "secret": "jenkins"
+        username: "mr"
+        secret: "jenkins"

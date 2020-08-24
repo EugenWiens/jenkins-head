@@ -12,5 +12,5 @@ servers:
       name: "jenkins_server_1"
       url_wrong: "http://jenkins_server_1:12345" # wrong key
       authentication:
-        - "username": "mr"
-        - "secret": "jenkins"
+        username: "mr"
+        secret: "jenkins"

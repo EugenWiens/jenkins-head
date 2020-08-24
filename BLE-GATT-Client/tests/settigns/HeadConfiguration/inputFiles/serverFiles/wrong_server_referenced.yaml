@@ -10,12 +10,12 @@ servers:
       name: "jenkins_server_1"
       url: "http://jenkins_server_1:12345"
       authentication:
-        - "username": "mr"
-        - "secret": "jenkins"
+        username: "mr"
+        secret: "jenkins"
     jenkins_server_2:
       name: "jenkins_server_2"
       url: "http://jenkins_server_2:12345"
       authentication:
-        - "username": "mr2"
-        - "secret": "jenkins2"
+        username: "mr2"
+        secret: "jenkins2"
     

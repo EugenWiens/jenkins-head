@@ -1,7 +1,6 @@
 
 import jenkins
 import logging
-import pprint
 
 from time import sleep
 from jenkins import JenkinsException
@@ -9,8 +8,8 @@ from jenkins import JenkinsException
 
 class JenkinsJobManager(object):
 
-    def __init__(self, username: str, password: str):
-        self.__server = jenkins.Jenkins('http://localhost:8080', username=username, password=password)
+    def __init__(self, url: str, username: str, password: str):
+        self.__server = jenkins.Jenkins(url, username=username, password=password)
         user = self.__server.get_whoami()
         version = self.__server.get_version()
         print('Connected to server with user ' + str(user) + ' server version is ' + version)
@@ -53,8 +52,6 @@ class JenkinsJobManager(object):
             except JenkinsException:
                 # still waiting
                 pass
-
-
 
     def __del__(self):
         print('delete object')

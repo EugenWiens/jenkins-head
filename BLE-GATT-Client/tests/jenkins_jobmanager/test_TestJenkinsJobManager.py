@@ -6,7 +6,7 @@ from jenkins_jobmanager.JenkinsJobManager import JenkinsJobManager
 
 @pytest.fixture(scope="class")
 def jenkinsManager():
-    jenkinsManager = JenkinsJobManager(username='admin', password='admin')
+    jenkinsManager = JenkinsJobManager(url='http://localhost:8080', username='admin', password='admin')
     yield jenkinsManager
     del jenkinsManager
 

@@ -26,16 +26,16 @@ class HeadConfiguration(ConfigurationBaseClass):
         self.__mHeadConfiguration = headConfiguration
         self.__mServerConfiguration = self.__removeUnnecessaryServerConfig(headConfiguration, serverAliasesList)
 
-    def getName(self):
+    def getName(self) -> str:
         return self.__mHeadConfiguration[self.__mNameKey]
 
-    def getBleMac(self):
+    def getBleMac(self) -> str:
         return self.__mHeadConfiguration[self.__mBleMacKey]
 
-    def getJobList(self):
+    def getJobList(self) -> list:
         return self.__mHeadConfiguration[self.__mJobsKey]
 
-    def getServerParameter(self, serverName):
+    def getServerParameter(self, serverName: str) -> dict:
         return self.__mServerConfiguration
 
     def __checkRequiredServerConfiguration(self, headConfiguration, serverAliasesList):

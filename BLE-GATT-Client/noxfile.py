@@ -114,7 +114,9 @@ def deploy(session):
 def distclean(session):
     '''this command removes all auto generated files'''
     foldersToRemove = [
-        '.nox'
+        '.nox',
+        '__pycache__',
+        '.pytest_cache'
     ]
 
     session.run('rm', '-Rf', *foldersToRemove)

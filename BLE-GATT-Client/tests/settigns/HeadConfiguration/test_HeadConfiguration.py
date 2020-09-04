@@ -96,4 +96,4 @@ class TestHeadConfiguration(object):
                 assert type(serverConfig) is dict, 'server config is not a dict'
 
     def __getFilePathRelative2ThisTest(self, filePath):
-        return os.path.dirname(__file__) + '/' + filePath
+        return os.path.join(os.path.dirname(__file__), filePath)

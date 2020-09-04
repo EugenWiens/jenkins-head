@@ -24,9 +24,7 @@
     "python.pythonPath": "${workspaceFolder}/.nox/dev-venv/bin/python3",
     "python.testing.pytestArgs": [
         "tests",
-        "-m", "unit_tests",
-        "-m", "integrations_tests"
-    ],
+     ],
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,
     "python.testing.pytestEnabled": true

@@ -12,6 +12,7 @@ def mock_JenkinsJobManager(*args, **kwargs):
     mockObject.getJobStatus.return_value = 'SUCCESS'
     return mockObject
 
+
 @pytest.mark.unit_test
 class TestHeadHandler:
     def test_statusDessitionsOneJob(self, monkeypatch):
@@ -21,7 +22,7 @@ class TestHeadHandler:
             configurationHandler = ConfigurationHandler(os.path.join(os.path.dirname(__file__), './inputFiles/head_config_one_job.yaml'))
             headConfigurationList = configurationHandler.getListOfHeadConfigurationObjects()
 
-            headHandler = HeadHandler(headConfigurationList[0])
+            headHandler = HeadHandler(headConfigurationList[0], None)
 
 
-            headHandler.check()
+            # headHandler.check()

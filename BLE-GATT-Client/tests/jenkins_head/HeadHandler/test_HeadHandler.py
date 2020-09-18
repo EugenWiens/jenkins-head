@@ -1,28 +1,33 @@
 import pytest
 import os
+import mock
 
-from unittest.mock import Mock
 from settings.ConfigurationHandler import ConfigurationHandler
 from jenkins_head.HeadHandler import HeadHandler
+
 import jenkins_jobmanager.JenkinsJobManager
-
-
-def mock_JenkinsJobManager(*args, **kwargs):
-    mockObject = Mock()
-    mockObject.getJobStatus.return_value = 'SUCCESS'
-    return mockObject
+import ble.GattServerConnector
 
 
 @pytest.mark.unit_test
 class TestHeadHandler:
-    def test_statusDessitionsOneJob(self, monkeypatch):
-        with monkeypatch.context() as m:
-            m.setattr(jenkins_jobmanager.JenkinsJobManager, "JenkinsJobManager", mock_JenkinsJobManager)
 
-            configurationHandler = ConfigurationHandler(os.path.join(os.path.dirname(__file__), './inputFiles/head_config_one_job.yaml'))
-            headConfigurationList = configurationHandler.getListOfHeadConfigurationObjects()
+    @pytest.mark.parametrize('headConfigFile, jenkinsStatus', [
+        ('./inputFiles/head_config_one_job.yaml', 'SUCCESS'),
+        ('./inputFiles/head_config_one_job.yaml', 'FAILURE'),
+        ('./inputFiles/head_config_three_jobs.yaml', 'SUCCESS'),
+        ('./inputFiles/head_config_three_jobs.yaml', 'FAILURE')
+    ])
+    @mock.patch('jenkins_jobmanager.JenkinsJobManager.JenkinsJobManager')
+    @mock.patch('ble.GattServerConnector.GattServerConnector')
+    def test_HeadHandlerCheck(self, mock_GattServerConnector, mock_JenkinsJobManager, headConfigFile, jenkinsStatus):
+        instance = mock_JenkinsJobManager.return_value
+        instance.getJobStatus.return_value = jenkinsStatus
 
-            headHandler = HeadHandler(headConfigurationList[0], None)
+        configurationHandler = ConfigurationHandler(os.path.join(os.path.dirname(__file__), headConfigFile))
+        headConfigurationList = configurationHandler.getListOfHeadConfigurationObjects()
 
+        headHandler = HeadHandler(headConfigurationList[0])
+        headHandler.check()
 
-            # headHandler.check()
+        assert mock_GattServerConnector.mock_calls == [mock.call('00:11:22:33:FF:01'), mock.call().sendStatus(jenkinsStatus)]

@@ -1,16 +1,17 @@
 
 from settings.HeadConfiguration import HeadConfiguration
-from ble.GattServerConnector import GattServerConnector
 from jenkins_head.HeaderStatusDecisionManager import HeaderStatusDecisionManager
 
+# this 'other' include form is needed, so that it is possible to mock this two modules
 import jenkins_jobmanager.JenkinsJobManager as jobmanager
+import ble.GattServerConnector as gattServer
 
 
 class HeadHandler(object):
 
-    def __init__(self, headConfiguration: HeadConfiguration, gattServerConnector: GattServerConnector):
+    def __init__(self, headConfiguration: HeadConfiguration):
         self.__headConfiguration = headConfiguration
-        self.__gattServerConnector = gattServerConnector
+        self.__gattServerConnector = gattServer.GattServerConnector(headConfiguration.getBleMac())
         self.__jobList = self.__headConfiguration.getJobList()
 
     def check(self):

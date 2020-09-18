@@ -10,7 +10,8 @@ nox.options.sessions = ['lint', 'unit-tests']
 unitTestDependencies = [
     'pytest',
     'pytest-cov',
-    'flake8'
+    'flake8',
+    'mock'
 ]
 
 integrationTestDependencies = [

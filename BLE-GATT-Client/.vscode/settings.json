@@ -6,7 +6,9 @@
         "**/CVS": true,
         "**/.DS_Store": true,
         "**/__pycache__" : true,
-        "**/*.egg-info" : true
+        "**/*.egg-info" : true,
+        "**/.nox" : true,
+        "**/.pytest_cache" : true
     },
     "plantuml.diagramsRoot": "doc/diagrams/src",
     "plantuml.exportOutDir": "doc/diagrams/out",
@@ -14,14 +16,16 @@
 
     "python.formatting.provider": "autopep8",
     "python.formatting.autopep8Args": ["--max-line-length=150","--ignore=E201,E202,E221,E222,E501"],
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
+
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Args": ["--max-line-length=150","--ignore=E201,E202,E221,E222,E501"],
-    "editor.formatOnSave": false,
-    "editor.formatOnType": false,
     
     "python.pythonPath": "${workspaceFolder}/.nox/dev-venv/bin/python3",
+    
     "python.testing.pytestArgs": [
         "tests"
      ],

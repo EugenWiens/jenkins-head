@@ -4,7 +4,7 @@ from jenkins_head.HeaderStatusDecisionManager import HeaderStatusDecisionManager
 
 
 @pytest.mark.unit_test
-class TestHeaderStatusDecisionManager:
+class TestHeaderStatusDecisionManager(object):
 
     @pytest.mark.parametrize('statusList, expectedDecision', [
         (['SUCCESS'], 'SUCCESS'),

@@ -10,7 +10,7 @@ import ble.GattServerConnector
 
 
 @pytest.mark.unit_test
-class TestHeadHandler:
+class TestHeadHandler(object):
 
     @pytest.mark.parametrize('headConfigFile, jenkinsStatus', [
         ('./inputFiles/head_config_one_job.yaml', 'SUCCESS'),

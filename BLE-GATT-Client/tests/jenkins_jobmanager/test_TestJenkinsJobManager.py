@@ -12,7 +12,7 @@ def jenkinsManager():
 
 
 @pytest.mark.integration_test
-class TestJenkinsJobManager:
+class TestJenkinsJobManager(object):
 
     @pytest.mark.parametrize('jobName, jobParameter, expectedJobStatus', [
         ('TestJob1-FS', {}, 'SUCCESS'),

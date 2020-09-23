@@ -1,0 +1,38 @@
+heads:
+  - name: "jenkins_head_1"
+    ble_mac: "00:11:22:33:FF:01"
+    jobs:
+      jenkins_server_1: 
+        - "job1/jenkins_head_1/jenkins_server_1/" 
+
+  - name: "jenkins_head_2"
+    ble_mac: "00:11:22:33:FF:02"
+    jobs:
+      jenkins_server_1: 
+        - "job1/jenkins_head_1/jenkins_server_1/" 
+
+  - name: "jenkins_head_3"
+    ble_mac: "00:11:22:33:FF:03"
+    jobs:
+      jenkins_server_1: 
+        - "job1/jenkins_head_1/jenkins_server_1/" 
+
+  - name: "jenkins_head_4"
+    ble_mac: "00:11:22:33:FF:04"
+    jobs:
+      jenkins_server_1: 
+            - "job1/jenkins_head_1/jenkins_server_1/" 
+    
+  - name: "jenkins_head_5"
+    ble_mac: "00:11:22:33:FF:05"
+    jobs:
+      jenkins_server_1: 
+        - "job1/jenkins_head_1/jenkins_server_1/"   
+
+servers:
+  jenkins_server_1:
+    name: "jenkins_server_1"
+    url: "http://jenkins_server_1:12345"
+    authentication:
+      username: "mr"
+      secret: "jenkins"

@@ -1,7 +1,6 @@
 
 import pytest
 import mock
-import unittest
 
 from ble.GattServerConnector import GattServerConnector
 

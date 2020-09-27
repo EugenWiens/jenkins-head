@@ -11,6 +11,7 @@ JenkinsJobManager *--> jenkins
 HeadsManager o--> "1..*" HeadHandler
 
 main *--> HeadsManager
+main *--> SignalHandler
 HeadsManager --> ConfigurationHandler
 ConfigurationHandler --> HeadConfiguration
 

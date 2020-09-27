@@ -4,9 +4,6 @@ import mock
 
 from ble.GattServerConnector import GattServerConnector
 
-# this 'other' include form is needed, so that it is possible to mock this two modules
-# import jenkins_jobmanager.JenkinsJobManager as jobmanager
-
 
 @pytest.mark.unit_test
 class TestHeaderStatusDecisionManager(object):

@@ -12,5 +12,5 @@ class SignalHandler:
     def __handleSignal(self, signum, frame):
         self.__terminationRequested = True
 
-    def isTerminationRequested(self):
+    def isTerminationRequested(self) -> bool:
         return self.__terminationRequested

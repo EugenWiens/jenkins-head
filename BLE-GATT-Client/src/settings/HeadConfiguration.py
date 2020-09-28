@@ -1,6 +1,7 @@
 import pprint
 
 from settings.ConfigurationBaseClass import ConfigurationBaseClass
+from settings.HeadConfiguration import HeadConfiguration
 
 
 class HeadConfiguration(ConfigurationBaseClass):
@@ -13,7 +14,7 @@ class HeadConfiguration(ConfigurationBaseClass):
     __mBleMacKey = 'ble_mac'
     __mJobsKey = 'jobs'
 
-    def __init__(self, headConfiguration, serverAliasesList):
+    def __init__(self, headConfiguration: HeadConfiguration, serverAliasesList: list):
         """ wraps the jenkins head configuration and substitute the server alias
         with one of the server configuration provided by serverAliasesList
 
@@ -38,7 +39,7 @@ class HeadConfiguration(ConfigurationBaseClass):
     def getServerParameter(self, serverName: str) -> dict:
         return self.__mServerConfiguration
 
-    def __checkRequiredServerConfiguration(self, headConfiguration, serverAliasesList):
+    def __checkRequiredServerConfiguration(self, headConfiguration: HeadConfiguration, serverAliasesList: list):
         requiredServers = headConfiguration[self.__mJobsKey]
 
         for serverAlias in requiredServers:
@@ -48,7 +49,7 @@ class HeadConfiguration(ConfigurationBaseClass):
             else:
                 raise Exception('Required server: ' + serverAlias + ' not provided in the server section: ' + pprint.pformat(serverAliasesList))
 
-    def __checkHeadConfiguration(self, headConfiguration):
+    def __checkHeadConfiguration(self, headConfiguration: HeadConfiguration):
         keysToCheck = [
             self.__mNameKey,
             self.__mBleMacKey,
@@ -57,7 +58,7 @@ class HeadConfiguration(ConfigurationBaseClass):
 
         self._checkConfigurationStructure(headConfiguration, keysToCheck)
 
-    def __removeUnnecessaryServerConfig(self, headConfiguration, serverAliasesList):
+    def __removeUnnecessaryServerConfig(self, headConfiguration: HeadConfiguration, serverAliasesList: list)->list:
         requiredSevers = headConfiguration[self.__mJobsKey]
         cleanServerAliasesList = {}
 

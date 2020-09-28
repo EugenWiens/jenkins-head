@@ -53,7 +53,7 @@ def waitSeconds(seconds: int):
     time.sleep(seconds)
 
 
-def main(argv):
+def main(argv: list):
     arguments = initArgumentParser(argv)
     initLogger(arguments.logLevel)
     signalHandler = SignalHandler()

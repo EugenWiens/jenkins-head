@@ -15,7 +15,7 @@ class ConfigurationHandler(ConfigurationBaseClass):
     __mServerSectionKey = 'servers'
     __mHeadsSectionKey = 'heads'
 
-    def __init__(self, configurationFilePath):
+    def __init__(self, configurationFilePath: str):
         self.__mFilePath = configurationFilePath
 
         with open(configurationFilePath, 'r') as fileHandle:
@@ -32,7 +32,7 @@ class ConfigurationHandler(ConfigurationBaseClass):
         self.__checkListOfHeads(listOfHeads)
         self.__mListOfHeads = listOfHeads
 
-    def getListOfHeadConfigurationObjects(self):
+    def getListOfHeadConfigurationObjects(self) -> list():
         return self.__mListOfHeads
 
     def __convertHeadsConfig2ListOfHeads(self):

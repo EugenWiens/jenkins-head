@@ -5,7 +5,7 @@ from jenkins_head.HeadHandler import HeadHandler
 
 class HeadsManager(object):
 
-    def __init__(self, configFilePath):
+    def __init__(self, configFilePath: str):
         self.__listOfHeads = []
         configManager = ConfigurationHandler(configFilePath)
         listOfHeadConfigs = configManager.getListOfHeadConfigurationObjects()

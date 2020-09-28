@@ -27,7 +27,7 @@ class JenkinsJobManager(object):
         jobInfo = self.__server.get_job_info(jobName, depth=1)
         return jobInfo['lastBuild']['result']
 
-    def __waitForJobExecution(self, jobName, buildNumber):
+    def __waitForJobExecution(self, jobName: str, buildNumber: int):
         # this delay is needed because of the jenkins status update inertia
         for step in range(20):
             sleep(1)

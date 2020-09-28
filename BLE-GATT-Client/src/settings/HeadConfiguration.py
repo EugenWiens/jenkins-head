@@ -1,7 +1,6 @@
 import pprint
 
 from settings.ConfigurationBaseClass import ConfigurationBaseClass
-from settings.HeadConfiguration import HeadConfiguration
 
 
 class HeadConfiguration(ConfigurationBaseClass):
@@ -14,7 +13,7 @@ class HeadConfiguration(ConfigurationBaseClass):
     __mBleMacKey = 'ble_mac'
     __mJobsKey = 'jobs'
 
-    def __init__(self, headConfiguration: HeadConfiguration, serverAliasesList: list):
+    def __init__(self, headConfiguration, serverAliasesList: list):
         """ wraps the jenkins head configuration and substitute the server alias
         with one of the server configuration provided by serverAliasesList
 
@@ -39,7 +38,7 @@ class HeadConfiguration(ConfigurationBaseClass):
     def getServerParameter(self, serverName: str) -> dict:
         return self.__mServerConfiguration
 
-    def __checkRequiredServerConfiguration(self, headConfiguration: HeadConfiguration, serverAliasesList: list):
+    def __checkRequiredServerConfiguration(self, headConfiguration, serverAliasesList: list):
         requiredServers = headConfiguration[self.__mJobsKey]
 
         for serverAlias in requiredServers:
@@ -49,7 +48,7 @@ class HeadConfiguration(ConfigurationBaseClass):
             else:
                 raise Exception('Required server: ' + serverAlias + ' not provided in the server section: ' + pprint.pformat(serverAliasesList))
 
-    def __checkHeadConfiguration(self, headConfiguration: HeadConfiguration):
+    def __checkHeadConfiguration(self, headConfiguration):
         keysToCheck = [
             self.__mNameKey,
             self.__mBleMacKey,
@@ -58,7 +57,7 @@ class HeadConfiguration(ConfigurationBaseClass):
 
         self._checkConfigurationStructure(headConfiguration, keysToCheck)
 
-    def __removeUnnecessaryServerConfig(self, headConfiguration: HeadConfiguration, serverAliasesList: list)->list:
+    def __removeUnnecessaryServerConfig(self, headConfiguration, serverAliasesList: list) -> list:
         requiredSevers = headConfiguration[self.__mJobsKey]
         cleanServerAliasesList = {}
 

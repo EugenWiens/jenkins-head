@@ -1,8 +1,6 @@
 import pprint
 import logging
 
-from settings.HeadConfiguration import HeadConfiguration
-
 
 class ConfigurationBaseClass(object):
     """this base class contains all basic methods for configuration handlong"""
@@ -11,7 +9,7 @@ class ConfigurationBaseClass(object):
     _mServerUrlKey = 'url'
     _mServerAuthentication = 'authentication'
 
-    def _checkConfigurationStructure(self, configurationConten: HeadConfiguration, mandetoryKeyList: list):
+    def _checkConfigurationStructure(self, configurationConten, mandetoryKeyList: list):
 
         if configurationConten is not None:
             for keyToCheck in mandetoryKeyList:

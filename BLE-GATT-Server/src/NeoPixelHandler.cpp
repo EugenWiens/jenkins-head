@@ -3,19 +3,20 @@
 #include <Arduino.h>
 
 namespace {
-    uint16_t firstPixel = 5;
-    uint16_t numberOfPixels = 3;
-    uint16_t dataPinNumber = 12;
+    uint16_t firstPixel = 0;
+    uint16_t numberOfPixels = 7;
+    uint16_t dataPinNumber = 16;
 }
 
 NeoPixelHandler::NeoPixelHandler()
-  : m_NeoPixel(16, dataPinNumber, NEO_GRBW + NEO_KHZ800)
+  : m_NeoPixel(numberOfPixels, dataPinNumber, NEO_GRB + NEO_KHZ800)
 {
 }
 
 void NeoPixelHandler::init() const
 {
     m_NeoPixel.begin();
+    m_NeoPixel.clear();
 } 
 
 void NeoPixelHandler::setColor(const RgbColor& rgbColor, uint32_t brightness) const

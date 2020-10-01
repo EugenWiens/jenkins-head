@@ -12,7 +12,7 @@ class JenkinsJobManager(object):
         self.__server = jenkins.Jenkins(url, username=username, password=password)
         user = self.__server.get_whoami()
         version = self.__server.get_version()
-        print('Connected to server with user ' + str(user) + ' server version is ' + version)
+        logging.debug('Connected to server with user ' + str(user) + ' server version is ' + version)
 
     def runJob(self, jobName: str, jobParameter: dict):
         jobInfo = self.__server.get_job_info(jobName, depth=1)
@@ -54,5 +54,4 @@ class JenkinsJobManager(object):
                 pass
 
     def __del__(self):
-        print('delete object')
         del self.__server

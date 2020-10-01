@@ -35,7 +35,7 @@ def initArgumentParser(argv):
         choices=['DEBUG', 'INFO', 'WARNING', 'ERROR'],
         help='set the level of the logging, default=\'INFO\'',
         default='INFO')
-    parser.add_argument('--configuration-file', default='./jenkins-head.yaml', help='this parameter provides an other config file for the heads-config')
+    parser.add_argument('--configuration-file', type=str, default='./jenkins-head.yaml', help='this parameter provides an other config file for the heads-config')
     parser.add_argument('--check-delay', type=int, default='5', help='the delay between two checks, default is 5 sec')
 
     return parser.parse_args(argv)
@@ -68,4 +68,4 @@ def main(argv: list):
 
 
 if __name__ == "__main__":
-    main(sys.argv)
+    main(sys.argv[1:])

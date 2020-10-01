@@ -1,0 +1,17 @@
+heads:
+    - name: "jenkins_head_1"
+      ble_mac: "24:62:AB:DC:CE:C6"
+      jobs:
+        jenkins_server_1: 
+          - "TestJob1-FS"
+          - "TestJob2-FS"
+          - "TestJob3-PL"
+          - "TestJob4-PL"
+
+servers:
+    jenkins_server_1:
+      name: "jenkins_server_1"
+      url: "http://localhost:8080"
+      authentication:
+        username: "admin"
+        secret: "admin"

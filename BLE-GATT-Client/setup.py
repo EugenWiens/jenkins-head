@@ -6,7 +6,7 @@ with open("package-description.md", "r") as fh:
 
 setuptools.setup(
     name="jenkins-head-controller",
-    version="0.0.0.dev2",
+    version="0.0.0.dev3",
     author="Hermann Leinweber",
     author_email="hermann.leinweber@leinies.de",
     description="Deamon to visualize the state of jenkins jobs with a 'jenkins head' (BLE controlled lights)",
@@ -27,6 +27,8 @@ setuptools.setup(
     },
     install_requires=[
         'pyyaml',
-        'python-jenkins'
+        'python-jenkins',
+        'pygatt',
+        'pexpect'
     ],
 )

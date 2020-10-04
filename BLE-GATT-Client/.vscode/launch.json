@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "jenkins_head_controller ()",
             "type": "python",
@@ -13,6 +14,13 @@
             "args" : [
                 "--configuration-file", "${workspaceFolder}/settings/example_config.yaml"
             ]
+        },
+        {
+            "name": "this file",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
         }
     ]
 }

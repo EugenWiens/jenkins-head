@@ -1,12 +1,13 @@
 [Unit]
-Description=Jenkins Head Controller
+Description=Jenkins Head Controller, this service checks the state of the configured jenkins jobs and send a request for a colloring over bluetooth to the head
 After=network.target
 
 [Service]
-# TODO ExecStart=
 Restart=on-failure
-
 ProtectSystem=strict
+
+Environment=PYTHONUNBUFFERED=true
+ExecStart=/usr/bin/python3 jenkins-head-controller
 
 [Install]
 WantedBy=multi-user.target

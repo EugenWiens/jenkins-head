@@ -25,7 +25,7 @@ class GattServerConnector(object):
     def __init__(self, bleAddress: str):
         self.__bluethoothAdapter = None
         self.__bleAddress = bleAddress
- 
+
     def sendStatus(self, status: str):
         rgbDict = self.__rgbMap[status]
         if rgbDict:

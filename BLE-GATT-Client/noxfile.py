@@ -59,6 +59,14 @@ def buildDocker(session):
     session.run('docker', 'build', './settings/jenkins/', '-t', 'jenkins-test-server:lts', external=True)
 
 
+@nox.session(name='start-jenkins-container', python=False)
+def startDocker(session):
+    session.run('docker', 'run', '-d', '--rm',
+                '-p', '8080:8080', '-p', '50000:50000',
+                '-v', 'jenkins_home:/var/jenkins_home',
+                'jenkins-test-server:lts')
+
+
 @nox.session(name='unit-tests')
 def unitTests(session):
     '''run unit tests for this project'''
